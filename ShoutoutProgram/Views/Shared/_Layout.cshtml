@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - Shoutout</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.png">
+	<link rel="icon" sizes="57x57" href="~/Images/favicon-32x32.png">
+	<link rel="icon" sizes="57x57" href="~/Images/favicon-57x57.png">
+	<link rel="icon" sizes="72x72" href="~/Images/favicon-72x72.png">
+	<link rel="icon" sizes="76x76" href="~/Images/favicon-76x76.png">
+	<link rel="icon" sizes="114x114" href="~/Images/favicon-114x114.png">
+	<link rel="icon" sizes="120x120" href="~/Images/favicon-120x120.png">
+	<link rel="icon" sizes="144x144" href="~/Images/favicon-144x144.png">
+	<link rel="icon" sizes="152x152" href="~/Images/favicon-152x152.png">
+	<link rel="apple-touch-icon" href="~/Images/favicon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="~/Images/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="~/Images/favicon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="~/Images/favicon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="~/Images/favicon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="~/Images/favicon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="~/Images/favicon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="~/Images/favicon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="~/Images/favicon-152x152.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="/favicon-144x144.png">
+	<meta name="application-name" content="Website Title">
+
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/dataTables")
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/bundles/fullCalendar")
+	@*@Scripts.Render("~/bundles/tablesort")*@
+	@*@Scripts.Render("~/bundles/search")*@
+	@*@RenderSection("Scripts", false)*@
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" style="width:100vw">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				@Html.ActionLink("Shoutout", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			<div class="navbar-collapse collapse">
+				@if (Request.IsAuthenticated)
+				{
+			<ul class="nav navbar-nav">
+				@*<li>@Html.ActionLink("Shoutouts", "Index", "Shoutouts")</li>*@
+				@*<li>@Html.ActionLink("Make A Shoutout", "Create", "Shoutouts")</li>*@
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shoutouts <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="@Url.Action("Create", "Shoutouts")">Make a Shoutout</a></li>
+						<li><a href="@Url.Action("Feed", "Home")">Shoutout Feed</a></li>
+						<li><a href="@Url.Action("Calendar", "Shoutouts")">Shoutout Calendar</a></li>
+						@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+						{
+				<li role="separator" class="divider"></li>
+				<li><a href="@Url.Action("Index", "Shoutouts")">Shoutout Index</a></li>
+				<li><a href="@Url.Action("MonthlySummary", "Shoutouts")">Monthly Summary</a></li>
+						}
+
+					</ul>
+				</li>
+				<li>@*@Html.ActionLink("Make A Suggestion", "Create", "Suggestions")*@</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Suggestions <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="@Url.Action("Create", "Suggestions")">Make a Suggestion</a></li>
+						@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+						{
+				<li role="separator" class="divider"></li>
+				<li><a href="@Url.Action("Index", "Suggestions")">Suggestion Index</a></li>
+						}
+
+					</ul>
+				</li>
+				<li>@*@Html.ActionLink("Shoutout Calendar", "Calendar", "Shoutouts")*@</li>
+				<li>@*@Html.ActionLink("Provalus Events", "Events", "Home")*@</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="@Url.Action("Events", "Home")">Provalus Events </a></li>
+						@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+						{
+				<li role="separator" class="divider"></li>
+				<li><a href="@Url.Action("EventsIndex", "Home")">Event Index</a></li>
+						}
+					</ul>
+					@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+					{
+			<li><a href="@Url.Action("Index", "Reports")">Report</a></li>
+					}
+			@*<li>@Html.ActionLink("Roles", "Index", "Roles")</li>*@
+				</ul>
+					}
+				
+				@Html.Partial("_LoginPartial")
+			</div>
+				</div>
+			</div>
+			@*the below is in control of the ticker plugin and formating*@
+			@if (User.Identity.IsAuthenticated)
+			{<div style=" overflow:hidden">
+	<div class="marquee3k" style="background-color: rgb(210,25,32); border-top-style:groove;" data-pausable="true" data-speed="1">
+		<p class="appMe" style="color: white; font-size: 20px;">****There are no upcoming events.****</p>
+
+	</div>
+</div>
+			}
+			@*end of ticker*@
+			<div class="container body-content">
+				<div>
+					@RenderBody()
+					<hr style="clear:left" />
+					<footer>
+						<p>&copy; @DateTime.Now.Year - Shoutout</p>
+					</footer>
+				</div>
+			</div>
+			@RenderSection("scripts", required: false)
+		</body>
+	</html>
+
+	<script src="~/Scripts/marquee3k.js"></script>
+	<script src="~/Scripts/Layout.js"></script>
+

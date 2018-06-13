@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ShoutoutProgram.Models.Shoutout>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Make A Shoutout", "Create")
+</p>
+
+<table id="myTable" class="ui celled table" style="width:100%">
+    <thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.User.FirstName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.User.LastName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Recipient)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DateTime)
+			</th>
+			<th>
+				Giver
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Level)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Level.Points)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Description)
+			</th>
+			<th>Actions</th>
+		</tr>
+    </thead>
+
+    <script>$(document).ready(function () {
+            $('#myTable').DataTable({
+            "autoWidth": true});
+            });
+    </script>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelIteam => item.User.FirstName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelIteam => item.User.LastName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Recipient.FullName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DateTime)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Project)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Level.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Level.Points)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Description)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { id = item.ShoutoutId }) |
+				@Html.ActionLink("Details", "Details", new { id = item.ShoutoutId }) |
+				@Html.ActionLink("Delete", "Delete", new { id = item.ShoutoutId })
+			</td>
+		</tr>
+        }
+    </tbody>
+</table>
+
+@*<script type="text/javascript" src="~/Scripts/SortTable.js"></script>
+    <link href="~/semantic/packaged/css/semantic.min.css" rel="stylesheet" />
+    <script src="~/Scripts/SortTable.js"></script>
+    <script src="~/semantic/packaged/javascript/semantic.min.js"></script>
+    <script src="~/Scripts/semantic.js"></script>*@

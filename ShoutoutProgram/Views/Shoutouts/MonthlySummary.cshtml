@@ -1,0 +1,38 @@
+﻿@using System.Linq;
+@model ShoutoutProgram.Models.MonthlySummaryViewModel
+
+@{
+    ViewBag.Title = "Monthly Summary";
+}
+
+<h2>Monthly Summary for @DateTime.Now.ToString("MMMM")</h2>
+<hr />
+
+<table id="myTable" class="ui celled table" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Users
+            </th>
+        </tr>
+    </thead>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "autoWidth": true
+            });
+        });
+    </script>
+
+    <tbody>
+        @foreach (var item in Model.DistinctRecipients)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

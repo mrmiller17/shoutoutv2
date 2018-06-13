@@ -1,0 +1,177 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Bootstrap Overrides */
+
+.navbar-inverse {
+    background-color: rgb(210, 35, 42);
+    border-color: rgb(210, 35, 42);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-size: 17px;
+    padding: 6px 15px;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: rgb(210, 35, 42);
+    box-shadow: none;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    border-radius: 8px;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #BF252B;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: white;
+    border-bottom-color: white;
+}
+
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: rgb(210,35,42);
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: rgb(210,35,42);
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: rgb(210,35,42);
+}
+
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        color: white;
+    }
+}
+
+.ui.grid {
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.ui.grid > .column, .ui.grid > .row > .column {
+    font-size: 1.5rem;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(220, 45, 52)
+}
+
+    /* Page Styles */
+    .shoutouts {
+    list-style: none;
+}
+
+.shoutouts > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.shoutouts >li .date {
+    background: rgb(210, 35, 42);
+    color: white;
+    text-align: center;
+    width: 60px;
+    border-radius: 7px;
+}
+
+.shoutouts > li .date .month {
+    text-transform: uppercase;
+    font-size: 14px;
+    /*font-weight: bold;*/
+    padding: 2px 6px;
+}
+
+.shoutouts > li .date .day {
+    background: #f7f7f7;
+    color: black;
+    font-size: 20px;
+    padding: 6px 12px;
+}
+
+.shoutouts > li .details {
+    position: absolute;
+    top: 0px;
+    left: 70px;
+}
+
+.shoutouts >li .details .user {
+    display: block;
+}
+.shoutouts > li .details .project {
+    display: block;
+}
+
+.shoutouts > li .details .level {
+    font-size: 14px;
+}

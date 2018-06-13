@@ -1,0 +1,36 @@
+﻿@using System.Linq;
+@model IEnumerable<ShoutoutProgram.Models.Shoutout>
+@{
+    ViewBag.Title = "Feed";
+}
+
+<h1>Shoutouts</h1>
+
+<hr>
+
+<ul class="shoutouts">
+    @foreach (var shoutout in Model.OrderByDescending(s => s.DateTime))
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @shoutout.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @shoutout.DateTime.ToString("dd")
+                </div>
+            </div>
+            <div class="details">
+                <span class="user">
+                    <strong>@shoutout.Recipient.FullName</strong> from @shoutout.User.FirstName @shoutout.User.LastName
+                </span>
+                <span class="project">
+                    For @shoutout.Project
+                </span>
+                <span class="level">
+                    @shoutout.Level.Name - @shoutout.Level.Points
+                </span>
+            </div>
+        </li>
+    }
+</ul>

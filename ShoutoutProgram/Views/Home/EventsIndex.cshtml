@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ShoutoutProgram.Models.Event>
+
+@{
+	ViewBag.Title = "EventsIndex";
+}
+
+<h2>EventsIndex</h2>
+
+
+
+<table id="myTable" class="ui celled table" style="width:100%">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Subject)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Description)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Start)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.End)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ThemeColor)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.IsFullDay)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.IsTicker)
+			</th>
+		</tr>
+	</thead>
+
+	<script>
+$(document).ready(function ()
+		{
+			$('#myTable').DataTable({
+				"autoWidth": true
+			});
+		});
+	</script>
+
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelIteam => item.Subject)
+				</td>
+				<td>
+					@Html.EditorFor(modelIteam => item.Description)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Start)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.End)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ThemeColor)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.IsFullDay)
+				</td>
+				<td>
+					@Html.EditorFor(modelItem => item.IsTicker)
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+@*<script type="text/javascript" src="~/Scripts/SortTable.js"></script>
+	<link href="~/semantic/packaged/css/semantic.min.css" rel="stylesheet" />
+	<script src="~/Scripts/SortTable.js"></script>
+	<script src="~/semantic/packaged/javascript/semantic.min.js"></script>
+	<script src="~/Scripts/semantic.js"></script>*@
+@*<script>
+
+	$('#btnEdit').click(function ()
+	{
+		//Open modal dialog for edit event
+		openAddEditForm();
+	})
+
+
+
+	function openAddEditForm()
+	{
+		if (selectedEvent != null) {
+			$('#hdEventId').val(selectedEvent.eventID);
+			$('#txtSubject').val(selectedEvent.title);
+			$('#txtStart').val(selectedEvent.start.format('MM/DD/YYYY HH:mm A'));
+			$('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
+			$('#chkIsFullDay').change();
+			$('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end.format('MM/DD/YYYY HH:mm A') : '');
+			$('#txtDescription').val(selectedEvent.description);
+			$('#ddThemeColor').val(selectedEvent.color);
+		}
+		$('#myModal').modal('hide');
+		$('#myModalSave').modal();
+	}
+</script>*@

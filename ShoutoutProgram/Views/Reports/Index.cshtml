@@ -1,0 +1,88 @@
+﻿
+@{
+	ViewBag.Title = "Reports";
+}
+
+<h2 style="clear: left">Report</h2>
+<div id="shoutoutsummary" style="clear: left">
+	<div style="float:left; width: 20%; text-align: center" class="monthly">
+		<p>
+			Shoutouts this month:
+		</p>
+		<p class="monthinsert">
+
+		</p>
+	</div>
+	<div style="float:right; width: 20%; text-align: center" class="quarterly">
+		<p>
+			Shoutouts this Year:
+		</p>
+		<p class="quarterinsert">
+
+		</p>
+	</div>
+	<div style="margin:0 auto; width: 25%; text-align:center">
+		<p>Select timeframe you wish to view.</p>
+		<select class="monthbox">
+			<option></option>
+			<option value="1">January</option>
+			<option value="2">February</option>
+			<option value="3">March</option>
+			<option value="4">April</option>
+			<option value="5">May</option>
+			<option value="6">June</option>
+			<option value="7">July</option>
+			<option value="8">August</option>
+			<option value="9">September</option>
+			<option value="10">October</option>
+			<option value="11">November</option>
+			<option value="12">December</option>
+			
+		</select>
+		<select class="yearbox">
+			<option></option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+		</select>
+	</div>
+	<div style="float: right"></div>
+</div>
+<br />
+<br />
+<table id="myTable" class="ui celled table" style="width:100%">
+	<thead>
+		<tr>
+			<th>
+				First Name:
+			</th>
+			<th>
+				Last Name:
+			</th>
+			<th>
+				points this month:
+			</th>
+			<th>
+				points Q1:
+			</th>
+			<th>
+				points Q2:
+			</th>
+			<th>
+				points Q3:
+			</th>
+			<th>
+				points Q4:
+			</th>
+		</tr>
+	</thead>
+
+
+	<tbody id="tb">
+	</tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/alasql@0.4"></script>
+<script src="~/Scripts/report.js"></script>
+

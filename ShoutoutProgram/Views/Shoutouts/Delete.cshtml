@@ -1,0 +1,83 @@
+﻿@model ShoutoutProgram.Models.Shoutout
+
+@*@model IEnumerable<ShoutoutProgram.Models.Shoutout>*@
+
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this shoutout?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName) @Html.DisplayFor(model => model.User.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recipient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recipient.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Level")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Level.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

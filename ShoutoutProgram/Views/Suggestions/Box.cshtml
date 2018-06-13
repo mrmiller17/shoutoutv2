@@ -1,0 +1,38 @@
+﻿@*Scrapped for now. If used, redo class styling to better format the view.*@
+
+@*@using System.Linq;
+@model IEnumerable<ShoutoutProgram.Models.Suggestion>
+@{
+    ViewBag.Title = "Suggestion Box";
+}
+
+<h1>Suggestion Box</h1>
+
+<hr>
+
+<ul class="shoutouts">
+    @foreach (var suggestion in Model.OrderByDescending(s => s.DateTime))
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @suggestion.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @suggestion.DateTime.ToString("dd")
+                </div>
+            </div>
+            <div class="details">
+                <span class="user">
+                    @suggestion.Name
+                </span>
+                <span class="project">
+                    @suggestion.EmailAddress - @suggestion.PhoneNumber
+                </span>
+                <span class="level">
+                    @suggestion.Description
+                </span>
+            </div>
+        </li>
+    }
+</ul>*@
